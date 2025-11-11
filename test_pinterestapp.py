@@ -15,9 +15,8 @@ def setup_teardown():
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
 
-    # Force WebDriverManager to use the matching ChromeDriver version
     driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager(driver_version="latest").install()),
+        service=Service(ChromeDriverManager().install()),  # ✅ removed driver_version="latest"
         options=options
     )
     yield driver
