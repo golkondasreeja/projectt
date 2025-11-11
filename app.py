@@ -26,37 +26,38 @@ def login():
 @app.route('/home')
 def home():
     pins = [
-        {"id": 1, "title": "Aesthetic Workspace", "image": "static/images/pin1.jpg"},
-        {"id": 2, "title": "Cozy Bedroom", "image": "static/images/pin2.jpg"},
-        {"id": 3, "title": "Travel Goals", "image": "static/images/pin3.jpg"},
-        {"id": 4, "title": "Art Inspiration", "image": "static/images/pin4.jpg"},
-        {"id": 5, "title": "Sunset Glow", "image": "static/images/pin5.jpg"},
-        {"id": 6, "title": "Beach Vibes", "image": "static/images/pin6.jpg"},
-        {"id": 7, "title": "Plant Decor", "image": "static/images/pin7.jpg"},
-        {"id": 8, "title": "Café Aesthetic", "image": "static/images/pin8.jpg"},
-        {"id": 9, "title": "Book Nook", "image": "static/images/pin9.jpg"},
-        {"id": 10, "title": "Boho Decor", "image": "static/images/pin10.jpg"},
-        {"id": 11, "title": "City Nights", "image": "static/images/pin11.jpg"},
-        {"id": 12, "title": "Vintage Finds", "image": "static/images/pin12.jpg"}
+        {"id": 1, "title": "Grilled Chicken with Garlic Butter Sauce", "image": "static/images/pin1.jpg"},
+        {"id": 2, "title": "Chicken Alfredo Pasta", "image": "static/images/pin2.jpg"},
+        {"id": 3, "title": "Creamy Mushroom Risotto", "image": "static/images/pin3.jpg"},
+        {"id": 4, "title": "Baked Mac and Cheese", "image": "static/images/pin4.jpg"},
+        {"id": 5, "title": "Classic Caesar Salad", "image": "static/images/pin5.jpg"},
+        {"id": 6, "title": "Roasted Vegetable Lasagna", "image": "static/images/pin6.jpg"},
+        {"id": 7, "title": "French Onion Soup", "image": "static/images/pin7.jpg"},
+        {"id": 8, "title": "Garlic Butter Prawns", "image": "static/images/pin8.jpg"},
+        {"id": 9, "title": "Chicken Salad", "image": "static/images/pin9.jpg"},
+        {"id": 10, "title": "Margherita Pizza", "image": "static/images/pin10.jpg"},
+        {"id": 11, "title": "Grilled Chicken Sandwich", "image": "static/images/pin11.jpg"},
+        {"id": 12, "title": "Chicken Steak with Mashed Potatoes", "image": "static/images/pin12.jpg"}
     ]
     return render_template("home.html", pins=pins)
 
 @app.route('/pin/<int:pin_id>')
 def pin_detail(pin_id):
     pins = {
-        1: {"title": "Aesthetic Workspace", "desc": "Minimal desk setup with warm lighting and red accents.", "image": "static/images/pin1.jpg"},
-        2: {"title": "Cozy Bedroom", "desc": "Soft tones and modern decor for comfort and peace.", "image": "static/images/pin2.jpg"},
-        3: {"title": "Travel Goals", "desc": "Wanderlust dreams captured in a single frame.", "image": "static/images/pin3.jpg"},
-        4: {"title": "Art Inspiration", "desc": "Creative wall collage ideas with Pinterest-style vibes.", "image": "static/images/pin4.jpg"},
-        5: {"title": "Sunset Glow", "desc": "Golden skies and peaceful evenings.", "image": "static/images/pin5.jpg"},
-        6: {"title": "Beach Vibes", "desc": "Feel the ocean breeze and soft sand.", "image": "static/images/pin6.jpg"},
-        7: {"title": "Plant Decor", "desc": "Greenery that brightens up your room.", "image": "static/images/pin7.jpg"},
-        8: {"title": "Café Aesthetic", "desc": "Perfect corner for a latte and book.", "image": "static/images/pin8.jpg"},
-        9: {"title": "Book Nook", "desc": "A cozy corner filled with stories.", "image": "static/images/pin9.jpg"},
-        10: {"title": "Boho Decor", "desc": "Earthy tones and natural textures.", "image": "static/images/pin10.jpg"},
-        11: {"title": "City Nights", "desc": "Neon lights and urban magic.", "image": "static/images/pin11.jpg"},
-        12: {"title": "Vintage Finds", "desc": "Retro treasures that never fade.", "image": "static/images/pin12.jpg"},
-    }
+    1: {"title": "Grilled Chicken with Garlic Butter Sauce", "desc": "Juicy grilled chicken topped with rich garlic butter sauce.", "image": "static/images/pin1.jpg"},
+    2: {"title": "Chicken Alfredo Pasta", "desc": "Creamy Alfredo pasta with tender chicken and parmesan.", "image": "static/images/pin2.jpg"},
+    3: {"title": "Creamy Mushroom Risotto", "desc": "Classic Italian risotto cooked with mushrooms and cheese.", "image": "static/images/pin3.jpg"},
+    4: {"title": "Baked Mac and Cheese", "desc": "Cheesy baked macaroni with a crispy golden topping.", "image": "static/images/pin4.jpg"},
+    5: {"title": "Classic Caesar Salad", "desc": "Crisp romaine lettuce tossed with Caesar dressing and croutons.", "image": "static/images/pin5.jpg"},
+    6: {"title": "Roasted Vegetable Lasagna", "desc": "Layered lasagna with roasted veggies and creamy cheese sauce.", "image": "static/images/pin6.jpg"},
+    7: {"title": "French Onion Soup", "desc": "Caramelized onion soup topped with melted cheese and bread.", "image": "static/images/pin7.jpg"},
+    8: {"title": "Garlic Butter Prawns", "desc": "Succulent prawns sautéed in butter, garlic, and herbs.", "image": "static/images/pin8.jpg"},
+    9: {"title": "Chicken Salad", "desc": "Healthy mix of chicken, greens, and tangy dressing.", "image": "static/images/pin9.jpg"},
+    10: {"title": "Margherita Pizza", "desc": "Classic pizza with mozzarella, tomatoes, and basil.", "image": "static/images/pin10.jpg"},
+    11: {"title": "Grilled Chicken Sandwich", "desc": "Tender grilled chicken served in toasted bread with veggies.", "image": "static/images/pin11.jpg"},
+    12: {"title": "Chicken Steak with Mashed Potatoes", "desc": "Seared chicken steak paired with creamy mashed potatoes.", "image": "static/images/pin12.jpg"},
+}
+
     pin = pins.get(pin_id)
     return render_template("pin.html", pin=pin)
 
