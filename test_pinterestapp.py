@@ -3,12 +3,24 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.alert import Alert
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 
 @pytest.fixture
 def setup_teardown():
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    # Configure Chrome options for Jenkins
+    options = Options()
+    options.binary_location = r"C:\Users\golko\AppData\Local\Google\Chrome\Application\chrome.exe"
+    options.add_argument("--headless")  # Run without GUI (required for Jenkins)
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+
+    # Initialize Chrome WebDriver
+    driver = webdriver.Chrome(
+        service=Service(ChromeDriverManager().install()),
+        options=options
+    )
     yield driver
     driver.quit()
 
